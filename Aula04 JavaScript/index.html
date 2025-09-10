@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="cadastroForm">
+        <h2>Formulário de Cadastro:</h2>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" placeholder="Digite seu nome completo" onblur="validarCampo(this)">
+        <span class="erro" id="erroNome"></span>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" placeholder="Digite seu email" onblur="validarEmail(this)">
+        <span class="erro" id="erroEmail"></span>
+
+        <label for="dataNascimento">Data Nascimento:</label>
+        <input type="text" id="dataNascimento" placeholder="dd/mm/aaaa" onblur="validarCampo(this)">
+
+        <label for="telFixo">Telefone Fixo:</label>
+        <input type="text" id="telFixo" placeholder="(xx)xxxx-xxxx" onblur="validarCampo(this)">
+
+        <label for="telCelular">Telefone Celular:</label>
+        <input type="text" id="telCelular" placeholder="(xx)xxxxx-xxxx" onblur="validarCampo(this)">
+
+        <div class="perfil">
+            <input type="radio" name="perfil" id="professor" value="professor" onchange="mostrarCampos()">
+            <label for="professor">Professor</label>
+
+            <input type="radio" name="perfil" id="aluno" value="aluno" onchange="mostrarCampos()">
+            <label for="aluno">Aluno</label>
+        </div>
+
+        <div id="camposProfessor" class="oculto">
+            <label for="area">Área:</label>
+            <input type="text" id="area" placeholder="Digite sua área de atuação" onblur="validarCampo(this)">
+
+            <label for="matriculaProfessor">Matrícula:</label>
+            <input type="text" id="matriculaProfessor" placeholder="Digite sua matrícula" onblur="validarCampo(this)">
+
+            <label for="lattes">Lattes:</label>
+            <input type="text" id="lattes" placeholder="Digite aqui o endereço para seu Lattes" onblur="validarCampo(this)">
+        </div>
+
+        <div id="camposAluno" class="oculto">
+            <label for="curso">Curso:</label>
+            <input type="text" id="curso" placeholder="Digite seu curso" onblur="validarCampo(this)">
+
+            <label for="matriculaAluno">Matrícula:</label>
+            <input type="text" id="matriculaAluno" placeholder="Digite sua matrícula" onblur="validarCampo(this)">
+        </div>
+
+        <button type="submit">Enviar</button>
+        <button type="reset">Redefinir</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
