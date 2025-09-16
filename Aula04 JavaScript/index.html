@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula04</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="cadastroForm">
+        <h1>Formulário de Cadastro:</h1>
+
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+        </div>
+
+        <div class="form-row email-row">
+            <div class="form-group" style="flex:1">
+              <label>Email:</label>
+              <input type="email" placeholder="Digite seu email">
+            </div>
+            <div class="form-group data">
+              <label>Data Nascimento:</label>
+              <input type="text" class="data-nascimento" placeholder="dd/mm/aaaa">
+            </div>
+          </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="telefoneFixo">Telefone Fixo:</label>
+                <input type="text" id="telefoneFixo" placeholder="(99)9999-9999">
+            </div>
+
+            <div class="form-group">
+                <label for="telefoneCelular">Telefone Celular:</label>
+                <input type="text" id="telefoneCelular" placeholder="(99)99999-9999">
+            </div>
+
+            <div class="form-group radio-group">
+                <label>Tipo:</label>
+                <div>
+                    <input type="radio" name="tipo" value="professor" id="professor">
+                    <label for="professor">Professor</label>
+                </div>
+                <div>
+                    <input type="radio" name="tipo" value="aluno" id="aluno" checked>
+                    <label for="aluno">Aluno</label>
+                </div>
+            </div>
+        </div>
+
+        <div id="camposAluno" style="display: none;">
+            <div class="form-row area-row">
+                <div class="form-group" style="flex:1">
+                    <label for="curso">Curso:</label>
+                    <input type="text" id="curso" placeholder="Digite seu curso">
+                </div>
+
+                <div class="form-group">
+                    <label for="matriculaAluno">Matrícula:</label>
+                    <input type="text" id="matriculaAluno" placeholder="Digite sua matrícula" maxlength="10">
+                </div>
+            </div>
+        </div>
+
+        <div id="camposProfessor" style="display: none;">
+            <div class="form-row area-row">
+                <div class="form-group" style="flex:1">
+                  <label>Área:</label>
+                  <input type="text" class="area" placeholder="Digite sua área de atuação">
+                </div>
+                <div class="form-group">
+                  <label>Matrícula:</label>
+                  <input type="text" class="matricula" placeholder="Digite sua matrícula">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lattes">Lattes:</label>
+                <input type="text" id="lattes" placeholder="Digite o endereço do seu Lattes">
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button type="submit">Enviar</button>
+            <button type="reset">Redefinir</button>
+        </div>
+    </form>
+    <script>
+        const professor = document.getElementById('professor');
+        const aluno = document.getElementById('aluno');
+        const camposAluno = document.getElementById('camposAluno');
+        const camposProfessor = document.getElementById('camposProfessor');
+
+        function atualizarCampos() {
+            if (aluno.checked) {
+                camposAluno.style.display = 'block';
+                camposProfessor.style.display = 'none';
+            } else if (professor.checked) {
+                camposAluno.style.display = 'none';
+                camposProfessor.style.display = 'block';
+            }
+        }
+
+        professor.addEventListener('change', atualizarCampos);
+        aluno.addEventListener('change', atualizarCampos);
+
+        atualizarCampos();
+
+        const dataInput = document.getElementById('dataNascimento');
+        dataInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 2 && value.length <= 4) {
+                value = value.slice(0, 2) + '/' + value.slice(2);
+            } else if (value.length > 4) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
+            }
+            e.target.value = value;
+        });
+
+        document.getElementById('matriculaAluno').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
+        });
+
+        document.getElementById('matriculaProfessor').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '').slice(0, 5);
+        });
+    </script>
+</body>
+</html>
