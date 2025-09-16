@@ -128,6 +128,7 @@ document.getElementById("cadastroForm").addEventListener("submit", function (eve
             dataNascimento: document.getElementById("dataNascimento").value,
             telFixo: document.getElementById("telFixo").value,
             telCelular: document.getElementById("telCelular").value,
+<<<<<<< HEAD
             perfil: perfil ? perfil.value : ""
         };
 
@@ -136,6 +137,16 @@ document.getElementById("cadastroForm").addEventListener("submit", function (eve
             dados.matricula = document.getElementById("matriculaProfessor").value;
             dados.lattes = document.getElementById("lattes").value;
         } else if (perfil.value === "aluno") {
+=======
+            perfil: perfil
+        };
+
+        if (perfil === "professor") {
+            dados.area = document.getElementById("area").value;
+            dados.matricula = document.getElementById("matriculaProfessor").value;
+            dados.lattes = document.getElementById("lattes").value;
+        } else {
+>>>>>>> 6d689a9885e80a398ff75a02e2bed411a2d1cb6a
             dados.curso = document.getElementById("curso").value;
             dados.matricula = document.getElementById("matriculaAluno").value;
         }
@@ -145,4 +156,8 @@ document.getElementById("cadastroForm").addEventListener("submit", function (eve
         this.reset();
         mostrarCampos();
     }
+<<<<<<< HEAD
 });
+=======
+};
+>>>>>>> 6d689a9885e80a398ff75a02e2bed411a2d1cb6a
