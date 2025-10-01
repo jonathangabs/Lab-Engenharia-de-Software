@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    background-color: #f8f8f8;
+}
+
+/* Título de Atividade */
+.activity-title {
+    font-family: Helvetica, sans-serif;
+    font-size: 26px;
+    color: #000;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+/* Contêiner Principal e Título do Formulário */
+.form-container {
+    max-width: 600px; /* Largura base do wireframe */
+    margin: 0 auto;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+h2 {
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 30px;
+}
+
+/* Configurações de Grupo de Formulário */
+.form-group {
+    margin-bottom: 20px;
+    position: relative; /* Para posicionar a mensagem de erro */
+}
+
+.form-group-inline {
+    display: flex;
+    gap: 30px; /* Espaço entre os campos inline */
+    margin-bottom: 10px;
+}
+
+.input-half {
+    flex: 1; /* Faz os campos dividirem o espaço */
+}
+
+/* Label (rótulos) */
+label {
+    font-family: Helvetica, sans-serif;
+    font-size: 10px;
+    color: rgba(34, 34, 34, 0.9); /* #222 com 90% de transparência */
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Input (campos de texto) */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"] {
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+    color: #999;
+    width: 100%;
+    padding: 5px 0;
+    border: none;
+    border-bottom: 1px solid #ccc; /* Borda inferior solid, 1px, #ccc */
+    outline: none; /* Remove o contorno padrão no foco */
+    background: transparent;
+}
+
+/* Foco no Input */
+input:focus {
+    border-bottom-color: #007bff; /* Cor diferente para indicar foco */
+}
+
+/* Mensagens de Erro */
+.error-message {
+    font-family: Helvetica, sans-serif;
+    font-size: 10px;
+    color: red;
+    height: 12px; /* Espaço reservado para a mensagem */
+    margin-top: 2px;
+}
+
+/* Radio Buttons (Professor/Aluno) */
+.radio-group label {
+    display: inline-block;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 12px; /* Um pouco maior para os labels do radio */
+    color: #222;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+    width: auto;
+    vertical-align: middle;
+}
+
+/* Botões */
+.button-group {
+    margin-top: 30px;
+    text-align: center;
+}
+
+button {
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+    padding: 8px 20px;
+    margin: 0 10px;
+    background: #eee; /* Fundo #eee */
+    border: 1px solid #aaa; /* Borda #aaa */
+    border-radius: 4px; /* Cantos arredondados 4px */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+#resultado-envio {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+}

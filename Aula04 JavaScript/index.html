@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula04 JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Formulário de Cadastro:</h2>
+
+        <form id="cadastroForm">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" onblur="validarCampo(this)">
+                <div class="error-message" id="error-nome"></div>
+            </div>
+
+            <div class="form-group-inline">
+                <div class="form-group input-half">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="fulano@exemplo.com" onblur="validarCampo(this)">
+                    <div class="error-message" id="error-email"></div>
+                </div>
+
+                <div class="form-group input-half">
+                    <label for="dataNascimento">Data Nascimento:</label>
+                    <input type="text" id="dataNascimento" name="dataNascimento" placeholder="dd/mm/aaaa" onblur="validarCampo(this)">
+                    <div class="error-message" id="error-dataNascimento"></div>
+                </div>
+            </div>
+
+            <div class="form-group-inline">
+                <div class="form-group input-half">
+                    <label for="telFixo">Telefone Fixo:</label>
+                    <input type="text" id="telFixo" name="telFixo" placeholder="(99)9999-9999" onblur="validarCampo(this)">
+                    <div class="error-message" id="error-telFixo"></div>
+                </div>
+
+                <div class="form-group input-half">
+                    <label for="telCelular">Telefone Celular:</label>
+                    <input type="text" id="telCelular" name="telCelular" placeholder="(99)99999-9999" onblur="validarCampo(this)">
+                    <div class="error-message" id="error-telCelular"></div>
+                </div>
+            </div>
+
+            <div class="form-group radio-group">
+                <input type="radio" id="perfilProfessor" name="perfil" value="Professor" onchange="alternarCamposPerfil()">
+                <label for="perfilProfessor">Professor</label>
+                
+                <input type="radio" id="perfilAluno" name="perfil" value="Aluno" checked onchange="alternarCamposPerfil()">
+                <label for="perfilAluno">Aluno</label>
+                <div class="error-message" id="error-perfil"></div>
+            </div>
+
+            <div id="campos-aluno">
+                <div class="form-group-inline">
+                    <div class="form-group input-half">
+                        <label for="curso">Curso:</label>
+                        <input type="text" id="curso" name="curso" placeholder="Digite seu curso" onblur="validarCampo(this)">
+                        <div class="error-message" id="error-curso"></div>
+                    </div>
+                    <div class="form-group input-half">
+                        <label for="matriculaAluno">Matrícula (Aluno):</label>
+                        <input type="text" id="matriculaAluno" name="matriculaAluno" placeholder="10 dígitos" onblur="validarCampo(this)">
+                        <div class="error-message" id="error-matriculaAluno"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="campos-professor" style="display: none;">
+                <div class="form-group-inline">
+                    <div class="form-group input-half">
+                        <label for="areaAtuacao">Área de Atuação:</label>
+                        <input type="text" id="areaAtuacao" name="areaAtuacao" placeholder="Digite a área de atuação" onblur="validarCampo(this)">
+                        <div class="error-message" id="error-areaAtuacao"></div>
+                    </div>
+                    <div class="form-group input-half">
+                        <label for="matriculaProfessor">Matrícula (Professor):</label>
+                        <input type="text" id="matriculaProfessor" name="matriculaProfessor" placeholder="5 dígitos" onblur="validarCampo(this)">
+                        <div class="error-message" id="error-matriculaProfessor"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lattes">Link Lattes:</label>
+                    <input type="url" id="lattes" name="lattes" placeholder="Ex: http://lattes.cnpq.br/..." onblur="validarCampo(this)">
+                    <div class="error-message" id="error-lattes"></div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" id="btnEnviar">Enviar</button>
+                <button type="reset" id="btnRedefinir">Redefinir</button>
+            </div>
+            
+            <div id="resultado-envio" class="success-message"></div>
+
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
